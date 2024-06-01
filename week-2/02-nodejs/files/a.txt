@@ -1,1 +1,10 @@
-hello from a.txt
+hello from a.txt 
+
+
+
+
+Why is that there is no space shown in there?
+
+
+
+How are you

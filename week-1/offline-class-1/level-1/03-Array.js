@@ -101,5 +101,5 @@ function sortExample(arr) {
     return a - b;
   });
   console.log("After sort:", arr);
-}
+}//sorts the array in ascending order by default but if numbers have 2 digits then it sorts them in lexicographical order. Also can sort in descending order by changing the return statement to b-a
 sortExample([5, 2, 3, 4, 1]);

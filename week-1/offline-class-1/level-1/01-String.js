@@ -26,14 +26,14 @@ function findLastIndexOf(str, target) {
 }
 findLastIndexOf("Hello World World", "World");
 
-// slice
+// slice- to get a part of the string and accepts negative values where -1 is the last character
 function getSlice(str, start, end) {
   console.log("Original String:", str);
   console.log("After slice:", str.slice(start, end));
 }
 getSlice("Hello World", 0, 5);
 
-// substring
+// substring- similar to slice but it doesn't accept negative values
 function getSubstring(str, start, end) {
   console.log("Original String:", str);
   console.log("After substring:", str.substring(start, end));
@@ -54,7 +54,7 @@ function splitString(str, separator) {
 }
 splitString("Hello World", " ");
 
-// trim
+// trim-to remove starting and ending spaces
 function trimString(str) {
   console.log("Original String:", str);
   console.log("After trim:", str.trim());

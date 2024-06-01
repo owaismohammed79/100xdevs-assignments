@@ -4,6 +4,15 @@ Without using setInterval, try to code a counter in Javascript. There is a hint 
 
 
 
+function call(j){
+  console.log(j);
+  i++;
+}
+let i =1;
+setInterval(()=>{
+  console.clear();
+  call(i);
+}, 1000)
 
 
 

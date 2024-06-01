@@ -41,9 +41,81 @@
  */
   const express = require('express');
   const bodyParser = require('body-parser');
+  const fs = require('fs');
   
   const app = express();
+
+  let todos=[];
+  let idNumber = 0;
   
   app.use(bodyParser.json());
+
+  app.get('/todos', function(req, res){
+    // fs.readFile('./todos.json', function(error, data){
+    //   if(error) res.status(404).send('Error in reading the todos file');
+    //   else{
+    //     res.status(200).json(data);
+    //   }
+    // })
+    res.status(200).json(todos);
+  })
+
+  app.get('/todos/:id', function(req, res){
+    let found = false;
+    const id = req.params.id;
+    for(let i=0; i < todos.length;i++){
+      if(todos[i]["todoID"] == id){
+        found = true;
+        res.status(200).json(todos[i]["title"]);
+      }
+    }
+    if(!found) res.status(404).send("No todo found with the ID")
+  })
+
+  app.post('/todos', function(req,res){
+    const title = req.body["title"];
+    const desc = req.body["description"];
+    const completed = req.body["completed"]
+    idNumber++;
+    todos.push({
+      todoTitle: title,
+      todoDesc: desc,
+      status: completed,
+      todoID: idNumber
+    })
+    res.status(201).json(todos[todos.length-1]);
+  })
+
+  app.put('/todos/:id', function(req,res){
+    const id = req.params.id;
+    let found = false;
+    for(let i=0; i < todos.length;i++){
+      if(todos[i]["todoID"] == id){
+        found = true;
+        todos[i]["status"] = !todos[i]["status"];
+        res.status(200).send('Todo Item updated');
+      }
+    }
+    if(!found) res.status(404).send("Todo with given ID not found");
+  })
+
+  app.delete('/todos/:id', function(req,res){
+    const id = req.params.id;
+    let found = false;
+    for(let i=0; i < todos.length;i++){
+      if(todos[i]["todoID"] == id){
+        found = true;
+        todos.splice(i, 1);             //Splice is a method that is used to delete an element in an array  
+        res.status(200).send(`Todo Item with ID ${id} deleted`);
+      }
+    }
+    if(!found) res.status(404).send("Todo with given ID not found");
+  })
+
+  app.use((req, res)=>{
+    res.status(404).send("The page your looking for is not found!");
+  })
+
+  app.listen(3000, ()=> console.log('Port opened at port 3000'))
   
   module.exports = app;

@@ -8,7 +8,7 @@ function jsonMethods(jsonString) {
   // Stringifying JavaScript object to JSON string
   let jsonStringified = JSON.stringify(parsedObject);
   console.log("After JSON.stringify():", jsonStringified);
-}
+} //JSON strings are useful because 
 
 // Example Usage for JSON Methods
 const sampleJSONString =

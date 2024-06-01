@@ -2,7 +2,7 @@ function explainParseInt(value) {
   console.log("Original Value:", value);
   let result = parseInt(value);
   console.log("After parseInt:", result);
-}
+}//used to convert a string to an integer
 
 // Example Usage for parseInt
 explainParseInt("42");
