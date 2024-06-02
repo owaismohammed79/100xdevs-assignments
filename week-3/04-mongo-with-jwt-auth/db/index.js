@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-
+const {mongo_url} = require('../../03-mongo/Data/');
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://owaismohammed795:DptSzRHXU2YTUWSn@cluster0.s3vosum.mongodb.net/Courses');
+mongoose.connect({mongo_url});
 
 // Define schemas
 const AdminSchema = new mongoose.Schema({
