@@ -2,7 +2,7 @@ import { useState } from "react";
 
 
 export default function Todo(){
-    const [todos, setTodos] = useState([]);
+    const [todos, setTodos] = useState([{}]);
 
     function addTodo(){
         const key = todos.length + 1

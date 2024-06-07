@@ -1,6 +1,6 @@
 // Middleware for handling auth
 const {Admin} = require('../db');
-const {JWTPASSWORD} = require('../routes/admin');  //Production me .config file me yab store karke usko .ignore me daalte he to usme daalna tha naaki route me directly
+const {JWTPASSWORD} = require('../routes/admin');  //Production me .config file me yab store karke usko .gitignore me daalte he to usme daalna tha naaki route me directly
 
 function adminMiddleware(req, res, next) {
     // Implement admin auth logic

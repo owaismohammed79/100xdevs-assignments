@@ -8,6 +8,13 @@
     let oldTodoState = [];
 
     function addTodoToDom() {
+      const h1 = document.createElement('h1');
+      const p = document.createElement('p');
+      h1.innerHTML('Go to gym');
+      p.innerHTML('Go to gym from 7 to 8');
+      const todo = document.createElement('div');
+      const todoDiv = document.getElementById('todos');
+      todoDiv.appendChild(todo);
       
     }
 
